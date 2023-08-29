@@ -7,6 +7,7 @@ public class Main {
         f.preparation();
 
         System.out.println();
+        //probando
         
         PrepararTrago daiquiri = new PrepararDaiquiri();
         Trago d = daiquiri.crearTrago("Daiquiri");
