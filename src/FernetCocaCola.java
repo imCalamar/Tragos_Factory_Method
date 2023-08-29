@@ -8,10 +8,8 @@
  */
 class FernetCocaCola extends Trago {
     
-    public FernetCocaCola(String name) {
-        super(name);
-    }
-    public FernetCocaCola() {
+    public FernetCocaCola(String name, int price) {
+        super(name, price);
     }
 
     public void ingredients(){

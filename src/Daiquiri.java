@@ -1,17 +1,18 @@
 public class Daiquiri extends Trago{
 
-    public Daiquiri(String name){
-        super(name);
+    public Daiquiri(String name, int price){
+        super(name,price);
     }
     public void ingredients(){
         System.out.println(
             "+ Ingredintes del Daiquiri:\r\n" + //
-                "- 150 grs de fruta natural: frutillas, durazno o anan\u00E1\r\n" + //
+                "- 150 grs de fruta natural: frutillas, durazno o anana\r\n" + //
                 "- Agua\r\n" + //
                 "- 100 ml de vodka o ron\r\n" + //
                 "- 30 grs de az\u00FAcar\r\n" + //
                 "- Hielo\r\n" + //
                 "- Menta");
+  
     }
     public void preparation(){
         System.out.println("+ Receta del Daiquiri:\r\n" + //

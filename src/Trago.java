@@ -1,13 +1,18 @@
 
 abstract class Trago {
     protected String name;
+    protected int price;
 
-    public Trago(String name){
+    public Trago(String name, int price){
         this.name=name;
-    }
-    public Trago(){
+        this.price=price;
     }
 
-    public abstract void ingredients();
+    public void iniciarTrago(){
+        System.out.println(
+            "- Barman prepara la bandeja \r\n" + //
+            "- Coloca una copa vacia");
+    }
+    public abstract void ingredients();// metodo abstracto
     public abstract void preparation();
 }
