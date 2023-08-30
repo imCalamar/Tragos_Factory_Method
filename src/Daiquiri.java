@@ -9,7 +9,7 @@ public class Daiquiri extends Trago{
                 "- 150 grs de fruta natural: frutillas, durazno o anana\r\n" + //
                 "- Agua\r\n" + //
                 "- 100 ml de vodka o ron\r\n" + //
-                "- 30 grs de az\u00FAcar\r\n" + //
+                "- 30 grs de azucar\r\n" + //
                 "- Hielo\r\n" + //
                 "- Menta");
   

@@ -20,3 +20,10 @@ class PrepararDaiquiri implements PrepararTrago {
         return new Daiquiri(name,price);
     }
 }
+
+class PrepararMojito implements PrepararTrago {
+    @Override
+    public Trago crearTrago(String name,int price) {
+        return new Mojito(name,price);
+    }
+}

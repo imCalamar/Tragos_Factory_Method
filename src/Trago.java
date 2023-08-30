@@ -1,4 +1,5 @@
 
+
 abstract class Trago {
     protected String name;
     protected int price;
@@ -8,13 +9,14 @@ abstract class Trago {
         this.price=price;
     }
 
-    public void iniciarTrago(){
+    public void iniciarTrago(){// metodo concreto de Trago
         System.out.println(
-            "- Barman prepara la bandeja \r\n" + //
+            "- Barman recibe el pedido del trago \r\n" + //
+            "- Barman prepara una bandeja \r\n" + //
             "- Coloca una copa vacia");
     }
     public abstract void ingredients();// metodo abstracto
-    public abstract void preparation();
+    public abstract void preparation();// metodo abstracto
 
     
 }

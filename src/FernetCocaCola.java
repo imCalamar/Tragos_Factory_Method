@@ -1,11 +1,6 @@
 
-// Clases concretas de Tragos
-/*
- * En este ejemplo, las clases Fernet y Daiquiri heredan de la clase abstracta Trago y 
- * proporcionan implementaciones concretas de los métodos ingredients() y preparation().
- * Las clases PrepararFernetCocaCola y PrepararDaiquiri implementan la interfaz PrepararTrago y 
- * proporcionan métodos para crear instancias de los respectivos tipos de tragos.
- */
+// Clase concreta
+
 class FernetCocaCola extends Trago {
     
     public FernetCocaCola(String name, int price) {
