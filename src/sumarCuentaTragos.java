@@ -1,5 +1,4 @@
 import java.util.concurrent.RecursiveTask;
-import java.util.concurrent.ForkJoinPool;
 
 public class sumarCuentaTragos extends RecursiveTask<Integer>{
     private static final int umbralDivision = 2;
