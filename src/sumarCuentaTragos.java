@@ -1,8 +1,12 @@
 import java.util.concurrent.RecursiveTask;
 //import java.util.concurrent.ForkJoinPool;
-
-public class sumarCuentaTragos extends RecursiveTask<Integer>{
-    private static final int umbralDivision = 2;
+/*
+ * metodo que utiliza patrón de programación concurrente Fork-Join para dividir
+ * la tarea de sumar los targos pedidos de forma paralela dividiendo la tarea en
+ * otras subTareas
+ */
+public class sumarCuentaTragos extends RecursiveTask<Integer>{ //declaracion de sumarCuentaTragos extendida de RecursiveTask
+    private static final int umbralDivision = 2; //limite hasta cuanto se divide el arreglo para las subtareas
     private int[] cuenta;
     private int start;
     private int end;
@@ -14,23 +18,23 @@ public class sumarCuentaTragos extends RecursiveTask<Integer>{
     }
 
     @Override
-    protected Integer compute(){
-        if(end-start<=umbralDivision){
+    protected Integer compute(){//computation task
+        if(end-start<=umbralDivision){// caso de la divicion minima de la tarea
             int  suma = 0;
             for(int i=start;i<end;i++){
                 suma+=cuenta[i];
             }
             return suma;
-        }else{
-            int mid = (start + end) / 2;
-            sumarCuentaTragos leftTask = new sumarCuentaTragos(cuenta, start, mid);
-            sumarCuentaTragos rightTask = new sumarCuentaTragos(cuenta, mid, end);
+        }else{//caso recursivo
+            int mid = (start + end) / 2;//divide el tamano del arrelo 
+            sumarCuentaTragos leftTask = new sumarCuentaTragos(cuenta, start, mid);//se crea una nueva tarea del lado left
+            sumarCuentaTragos rightTask = new sumarCuentaTragos(cuenta, mid, end);//se crea una nueva tarea del lado right
 
-            leftTask.fork();
-            int rightResult = rightTask.compute();
-            int leftResult = leftTask.join();
+            leftTask.fork();//etapa de difurcacion
+            int rightResult = rightTask.compute();//lado derecho llama a la tarea computar
+            int leftResult = leftTask.join();//El hilo/proceso que se bifurcaron previamente se "une" nuevamente 
 
-            return leftResult + rightResult;
+            return leftResult + rightResult;// se unen los resultados de las tareas
         }
     }
 }
