@@ -1,14 +1,12 @@
 import java.util.concurrent.ForkJoinPool;
 import java.util.LinkedList;
 import Utiles.TecladoIn;
-
 /*
  * En ek Dominio elegido(Preparacion de Tragos) las clases Fernet y Daiquiri heredan de la clase abstracta Trago y 
  * proporcionan implementaciones concretas de los métodos ingredients() y preparation().
  * Las clases PrepararFernetCocaCola y PrepararDaiquiri implementan la interfaz PrepararTrago y 
  * proporcionan métodos para crear instancias de los respectivos tipos de tragos.
  */
-
 public class Main {
     public static void main(String[] args) {
         PrepararTrago fabricaTrago;
@@ -70,13 +68,11 @@ public class Main {
                 }break;
             }
         }
-
         //"Conversion" de LinkedList<Integer> a int[]
         arregloCuenta = new int[cantidadTragos];
         for(int i=0; i < cantidadTragos; i++){
             arregloCuenta[i] = (int)cuenta.get(i);
         }
-
         precioFinal = pool.invoke(new sumarCuentaTragos(arregloCuenta,0,cantidadTragos));
         System.out.println("Suma de los targos: " + precioFinal);
     }

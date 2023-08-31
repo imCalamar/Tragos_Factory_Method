@@ -1,11 +1,10 @@
-// Interfaz de la fábric de Tragos
-
+// PrepararTrago declara la interfaz
 public interface PrepararTrago {
     Trago crearTrago(String name,int price);
-
 }
 
-// Implementaciones 
+// Implementaciones de la Interfaz PrepararTrago, 
+//son preparaciones de tragos cocretas
 
 class PrepararFernetCocaCola implements PrepararTrago {
     @Override

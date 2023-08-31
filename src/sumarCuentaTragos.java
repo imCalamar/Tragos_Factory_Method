@@ -1,5 +1,5 @@
 import java.util.concurrent.RecursiveTask;
-import java.util.concurrent.ForkJoinPool;
+//import java.util.concurrent.ForkJoinPool;
 
 public class sumarCuentaTragos extends RecursiveTask<Integer>{
     private static final int umbralDivision = 2;
@@ -11,29 +11,26 @@ public class sumarCuentaTragos extends RecursiveTask<Integer>{
         this.cuenta=cuenta;
         this.start=start;
         end=cont;
-
     }
+
     @Override
     protected Integer compute(){
-
         if(end-start<=umbralDivision){
-        int  suma = 0;
-        for(int i=start;i<end;i++){
-            suma+=cuenta[i];
+            int  suma = 0;
+            for(int i=start;i<end;i++){
+                suma+=cuenta[i];
+            }
+            return suma;
+        }else{
+            int mid = (start + end) / 2;
+            sumarCuentaTragos leftTask = new sumarCuentaTragos(cuenta, start, mid);
+            sumarCuentaTragos rightTask = new sumarCuentaTragos(cuenta, mid, end);
+
+            leftTask.fork();
+            int rightResult = rightTask.compute();
+            int leftResult = leftTask.join();
+
+            return leftResult + rightResult;
         }
-        return suma;
-    }else{
-        int mid = (start + end) / 2;
-        sumarCuentaTragos leftTask = new sumarCuentaTragos(cuenta, start, mid);
-        sumarCuentaTragos rightTask = new sumarCuentaTragos(cuenta, mid, end);
-
-        leftTask.fork();
-        int rightResult = rightTask.compute();
-        int leftResult = leftTask.join();
-
-        return leftResult + rightResult;
-
     }
 }
-}
-
