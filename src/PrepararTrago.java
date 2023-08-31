@@ -25,5 +25,12 @@ class PrepararMojito implements PrepararTrago {
     @Override
     public Trago crearTrago(String name,int price) {
         return new Mojito(name,price);
-    }
+    } 
+}
+
+class PrepararGaribaldi implements PrepararTrago {
+    @Override
+    public Trago crearTrago(String name,int price) {
+        return new Garibaldi(name,price);
+    } 
 }
