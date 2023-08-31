@@ -59,7 +59,7 @@ public class Main {
                 }break;
                 case 4:{
                     fabricaTrago = new PrepararGaribaldi();
-                    trago = fabricaTrago.crearTrago("Mojito",1400);
+                    trago = fabricaTrago.crearTrago("Garibaldi",1400);
                     trago.iniciarTrago();
                     trago.ingredients();
                     trago.preparation();
